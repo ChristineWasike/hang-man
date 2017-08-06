@@ -4,12 +4,36 @@
  */
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Random;
+import java.util.List;
+import java.util.Arrays;
 
 public class HangmanTest {
+    List<String> myWords = Arrays.asList("cow", "silver", "phone", "core");
+    Random myRandomGenerator = new Random();
 
-    // @Test public void selectWord_returnsWordFromMyWords_true() {
-    //     Hangman testHangman = new Hangman();
-    //     String expected = "hello";
-    //     assertEquals(expected, testHangman.selectWord("hello");
-    // }
+    String word = myWords.get(myRandomGenerator.nextInt(myWords.size()));
+
+    @Test
+    public void findLetter_selectWord_string() {
+        Hangman testHangman = new Hangman();
+        String expected = word;
+        myWords.contains(word);
+        assertEquals(expected, testHangman.findLetter(word));
+    }
+
+    @Test 
+
+    public void findLetter_fillWithSpace() {
+        Hangman testHangman = new Hangman();
+        String expected = " ";
+        assertEquals(expected, testHangman.findLetter(" "));
+    }
+
+    @Test
+    public void findLetter_replaceLetterWithHyphen() {
+        Hangman testHangman = new Hangman();
+        String expected = "----";
+        assertEquals(expected, testHangman.findLetter("home"));
+    }
 }
