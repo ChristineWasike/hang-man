@@ -12,73 +12,77 @@ public class Hangman {
 
     String word = myWords.get(myRandomGenerator.nextInt(myWords.size()));
 
-    // List<String> usersGuess = Arrays.asList("");
     public String findLetter(String word) {
 
         char[] filler = new char[word.length()];
         int i = 0;
 
         while (i < word.length()) {
-         filler[i] = '-';
-         if (word.charAt(i) == ' ') {
-             filler[i] = ' ';
-         }
-            i++;  
+            filler[i] = '-';
+            if (word.charAt(i) == ' ') {
+                filler[i] = ' ';
+            }
+            i++;
         }
         return word;
-        
+
     }
+
     Scanner scannedInput = new Scanner(System.in);
 
     ArrayList<Character> usersGuess = new ArrayList<Character>();
-}
 
-// char[] filler = new char[word.length()];
-// int i = 0;while(i<word.length())
-// {
-//     filler[i] = '-';
-//     if (word.charAt(i) == ' ') {
-//         filler[i] = ' ';
-//     }
-//     i++;
-// }System.out.print(filler);System.out.println("      life remaining = "+life);
+    char[] filler = new char[word.length()];
 
-// Scanner s = new Scanner(System.in);
+    int i = 0;
+    int life = 5;
+    
+    while(i<word.length())
+    {
+        filler[i] = '-';
+        if (word.charAt(i) == ' ') {
+            filler[i] = ' ';
+        }
+        i++;
+    }System.out.print(filler);System.out.println("      life remaining = "+life);
 
-// ArrayList<Character> l = new ArrayList<Character>();
+    Scanner s = new Scanner(System.in);
 
-// while(life>0)
-// {
-//     char x = s.next().charAt(0); //character input by user
+    ArrayList<Character> l = new ArrayList<Character>();
 
-//     if (l.contains(x + "")) {
-//         System.out.println("Already entered");
-//         continue; //while loop continues            
-//     }
+    while(life>0)
+    {
+        char x = s.next().charAt(0); //character input by user
 
-//     l.add(x);
+        if (l.contains(x + "")) {
+            System.out.println("Already entered");
+            continue; //while loop continues            
+        }
 
-//     if (word.contains(x + "")) {
-//         for (int y = 0; y < word.length(); y++) {
-//             if (word.charAt(y) == x) {
-//                 filler[y] = x;
-//             }
+        l.add(x);
 
-//         }
-//     } else {
-//         life--; //life decreases
-//     }
+        if (word.contains(x + "")) {
+            for (int y = 0; y < word.length(); y++) {
+                if (word.charAt(y) == x) {
+                    filler[y] = x;
+                }
 
-//     if (word.equals(String.valueOf(filler))) { //checking if the filler equals word
-//         System.out.println(filler);
-//         System.out.println("You won mate  !!!");
-//         break;
-//     }
+            }
+        } else {
+            life--; //life decreases
+        }
 
-//     System.out.print(filler);
-//     System.out.println("  life remaining = " + life);
+        if (word.equals(String.valueOf(filler))) { //checking if the filler equals word
+            System.out.println(filler);
+            System.out.println("You won mate  !!!");
+            break;
+        }
 
-// }if(life==0)
-// {
-//                 System.out.println("You lose mate");
-//             }
+        System.out.print(filler);
+        System.out.println("  life remaining = " + life);
+
+    }if(life==0)
+    {
+        System.out.println("You lose mate");
+    }
+}}
