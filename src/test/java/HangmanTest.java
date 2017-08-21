@@ -22,7 +22,7 @@ public class HangmanTest {
         assertEquals(expected, testHangman.findLetter(word));
     }
 
-    @Test 
+    @Test
 
     public void findLetter_fillWithSpace() {
         Hangman testHangman = new Hangman();
@@ -35,5 +35,11 @@ public class HangmanTest {
         Hangman testHangman = new Hangman();
         String expected = "----";
         assertEquals(expected, testHangman.findLetter("home"));
+    }
+
+    @Test
+    public void isCorrectlyGussed_guessIsCorrect() {
+        Hangman testHangman = new Hangman();
+
     }
 }
